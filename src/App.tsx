@@ -77,7 +77,7 @@ export default function App() {
         <nav className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center" aria-label="Navegación principal">
           <div className="flex items-center gap-3">
             <a href="#inicio" className="flex items-center" aria-label="Ir al inicio de Biointech">
-              <img src="http://biointech.co/2026/wp-content/uploads/logo-Biointech-v1.jpg" alt="Logotipo de Biointech S.A.S. - Soluciones Ambientales" className="h-10 md:h-12 object-contain bg-white/90 p-1 rounded" />
+              <img src="http://biointech.co/2026/wp-content/uploads/logo-Biointech-png-2.png" alt="Logotipo de Biointech S.A.S. - Soluciones Ambientales" className="h-14 md:h-16 object-contain bg-white/90 p-1 rounded" />
             </a>
           </div>
 
@@ -326,6 +326,7 @@ export default function App() {
               { icon: Droplets, title: "TRATAMIENTO DE AGUAS", desc: "Sistemas integrales para la potabilización y tratamiento de vertimientos industriales.", color: "primary" },
               { icon: FlaskConical, title: "INVESTIGACIÓN Y DESARROLLO", desc: "Laboratorio dedicado a la creación de nuevas soluciones para desafíos ambientales.", color: "secondary" },
               { icon: ShieldCheck, title: "CUMPLIMIENTO DE LEY RUC", desc: "Garantía total de cumplimiento normativo y estándares de seguridad industrial.", color: "primary" },
+              { icon: ShieldCheck, title: "CERTIFICACIÓN CSS", desc: "Acompañamiento experto para la obtención de certificaciones de seguridad y salud.", color: "secondary" },
             ].map((service, idx) => (
               <motion.div 
                 key={idx}
@@ -333,20 +334,75 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className={`bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group border-b-4 border-transparent ${service.color === 'primary' ? 'hover:border-primary' : 'hover:border-secondary'}`}
+                className={`bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group border-b-4 border-transparent flex flex-col h-full ${service.color === 'primary' ? 'hover:border-primary' : 'hover:border-secondary'}`}
               >
                 <div className={`w-14 h-14 bg-surface-container rounded-xl flex items-center justify-center mb-6 transition-colors ${service.color === 'primary' ? 'group-hover:bg-primary' : 'group-hover:bg-secondary'}`}>
                   <service.icon className={`w-7 h-7 transition-colors ${service.color === 'primary' ? 'text-primary group-hover:text-white' : 'text-secondary group-hover:text-white'}`} />
                 </div>
                 <h3 className="font-headline font-bold text-primary-dark mb-3 uppercase text-sm tracking-wide">{service.title}</h3>
-                <p className="text-dark/70 text-sm leading-relaxed">{service.desc}</p>
+                <p className="text-dark/70 text-sm leading-relaxed mb-6 flex-grow">{service.desc}</p>
+                
+                <a 
+                  href="https://biointech.co/2026/servicios.html" 
+                  className={`inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest transition-colors ${service.color === 'primary' ? 'text-primary group-hover:text-primary-dark' : 'text-secondary group-hover:text-secondary-light'}`}
+                >
+                  Ver más detalles
+                  <Share2 className="w-3 h-3" />
+                </a>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Project Section */}
+      {/* Process Section */}
+      <section className="py-24 bg-surface overflow-hidden" aria-labelledby="proceso-heading">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+            <span className="text-secondary font-bold tracking-[0.3em] uppercase text-xs">Metodología</span>
+            <h2 id="proceso-heading" className="text-4xl md:text-5xl font-headline font-extrabold text-primary-dark tracking-tighter">Nuestro Proceso Operativo</h2>
+            <p className="text-dark/70 text-lg">
+              Un enfoque sistemático y riguroso para garantizar resultados óptimos en cada intervención ambiental.
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Connection Line (Desktop) */}
+            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-neutral/30 hidden lg:block -translate-y-1/2 z-0" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+              {[
+                { step: "01", title: "Evaluación Inicial", desc: "Análisis detallado del pasivo ambiental y caracterización técnica de residuos.", icon: Building2 },
+                { step: "02", title: "Ingeniería Aplicada", desc: "Diseño de la solución biotecnológica a medida según los requerimientos del cliente.", icon: FlaskConical },
+                { step: "03", title: "Ejecución en Sitio", desc: "Despliegue de equipos y personal especializado para el tratamiento integral.", icon: Factory },
+                { step: "04", title: "Certificación Final", desc: "Entrega de reportes de cumplimiento y avales ambientales oficiales.", icon: ShieldCheck },
+              ].map((item, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.2 }}
+                  className="flex flex-col items-center text-center group"
+                >
+                  <div className="relative mb-8">
+                    <div className="w-20 h-20 bg-surface-container-lowest rounded-full flex items-center justify-center shadow-lg border-4 border-surface group-hover:border-secondary transition-all duration-500 z-10 relative">
+                      <item.icon className="w-8 h-8 text-primary group-hover:text-secondary transition-colors" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-headline font-black text-xs shadow-md z-20">
+                      {item.step}
+                    </div>
+                  </div>
+                  <h3 className="font-headline font-bold text-primary-dark mb-3 uppercase text-sm tracking-wide">{item.title}</h3>
+                  <p className="text-dark/70 text-sm leading-relaxed px-4">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Planta Guayacán Section */}
       <section id="guayacan" className="relative py-24 bg-primary-dark overflow-hidden" aria-labelledby="guayacan-heading">
         <div className="absolute inset-0 opacity-10 mix-blend-overlay">
           <img 
@@ -405,6 +461,24 @@ export default function App() {
         </div>
       </section>
 
+      {/* Certifications Banner Section */}
+      <section className="py-16 bg-white border-y border-neutral/10" aria-label="Certificaciones Biointech">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 flex justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="w-full max-w-5xl"
+          >
+            <img 
+              src="http://biointech.co/2026/wp-content/uploads/Certificaciones-biointech-2.jpeg" 
+              alt="Certificaciones y avales de Biointech S.A.S." 
+              className="w-full h-auto object-contain shadow-sm rounded-lg"
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Systems Section */}
       <section id="sistemas" className="py-24 bg-surface" aria-labelledby="sistemas-heading">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -437,7 +511,7 @@ export default function App() {
               <div className="lg:col-span-7 relative">
                 <div className="bg-primary/5 rounded-2xl p-4 md:p-8 backdrop-blur-sm border border-primary/10">
                   <img 
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop" 
+                    src="http://biointech.co/2026/wp-content/uploads/web-medidores-biointech-v2b.jpg" 
                     alt="Dashboard del Sistema de Información Biointech mostrando métricas en tiempo real" 
                     title="Dashboard de Monitoreo Biointech"
                     className="rounded-xl shadow-2xl border border-white/50 w-full"
@@ -511,23 +585,31 @@ export default function App() {
             
             <div className="bg-surface-container-low p-8 md:p-10 rounded-3xl border border-neutral/20 shadow-sm">
               <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-dark/60">Nombre Completo</label>
-                    <input 
-                      type="text" 
-                      placeholder="Juan Pérez"
-                      className="w-full bg-transparent border-none border-b-2 border-neutral/50 focus:border-secondary focus:ring-0 px-0 py-2 transition-colors placeholder:text-dark/30"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-dark/60">Correo Corporativo</label>
-                    <input 
-                      type="email" 
-                      placeholder="juan@empresa.com"
-                      className="w-full bg-transparent border-none border-b-2 border-neutral/50 focus:border-secondary focus:ring-0 px-0 py-2 transition-colors placeholder:text-dark/30"
-                    />
-                  </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-dark/60">Nombre Completo</label>
+                  <input 
+                    type="text" 
+                    placeholder="Juan Pérez"
+                    className="w-full bg-transparent border-none border-b-2 border-neutral/50 focus:border-secondary focus:ring-0 px-0 py-2 transition-colors placeholder:text-dark/30"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-dark/60">WhatsApp</label>
+                  <input 
+                    type="tel" 
+                    placeholder="+57 300 000 0000"
+                    className="w-full bg-transparent border-none border-b-2 border-neutral/50 focus:border-secondary focus:ring-0 px-0 py-2 transition-colors placeholder:text-dark/30"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-dark/60">Correo e-mail</label>
+                  <input 
+                    type="email" 
+                    placeholder="juan@empresa.com"
+                    className="w-full bg-transparent border-none border-b-2 border-neutral/50 focus:border-secondary focus:ring-0 px-0 py-2 transition-colors placeholder:text-dark/30"
+                  />
                 </div>
                 
                 <div className="space-y-2">
@@ -538,14 +620,14 @@ export default function App() {
                     <option>TERMO-CENTRIFUGADO</option>
                     <option>BIOREMEDACIÓN</option>
                     <option>TRATAMIENTO DE AGUAS</option>
-                    <option>INVERTIGACIÓN Y DESARROLLO</option>
+                    <option>INVESTIGACIÓN Y DESARROLLO</option>
                     <option>Cumplimiento de ley RUC</option>
                     <option>Otros</option>
                   </select>
                 </div>
                 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-dark/60">Mensaje</label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-dark/60">Mensaje requerimiento</label>
                   <textarea 
                     rows={4}
                     placeholder="Cuéntenos sobre su requerimiento..."
@@ -568,7 +650,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
             <div className="space-y-6 lg:pr-8">
-              <img src="http://biointech.co/2026/wp-content/uploads/logo-Biointech-v1.jpg" alt="Logotipo de Biointech S.A.S." className="h-12 object-contain bg-white/90 p-2 rounded-lg" />
+              <img src="http://biointech.co/2026/wp-content/uploads/logo-Biointech-png-2.png" alt="Logotipo de Biointech S.A.S." className="h-16 object-contain bg-white/90 p-2 rounded-lg" />
               <p className="text-white/60 text-sm leading-relaxed">
                 Líderes en biotecnología aplicada a la remediación industrial y gestión integral de residuos.
               </p>
