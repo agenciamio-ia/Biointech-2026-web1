@@ -51,11 +51,11 @@ export default function App() {
   }, []);
 
   const navLinks = [
-    { name: 'Inicio', href: '#inicio' },
-    { name: 'Nosotros', href: '#nosotros' },
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Planta Guayacán', href: '#guayacan' },
-    { name: 'Sistemas', href: '#sistemas' },
+    { name: 'Inicio', href: 'https://biointech.co/2026/index2.html' },
+    { name: 'Nosotros', href: 'https://biointech.co/2026/nosotros.html' },
+    { name: 'Servicios', href: 'https://biointech.co/2026/servicios.html' },
+    { name: 'Planta', href: 'https://biointech.co/2026/planta.html' },
+    { name: 'Guayacán', href: 'https://biointech.co/2026/guayacan.html' },
   ];
 
   return (
@@ -76,7 +76,7 @@ export default function App() {
       <header className={`fixed top-0 w-full z-40 transition-all duration-300 ${isScrolled ? 'glass-nav py-3 shadow-sm' : 'bg-transparent py-5'}`}>
         <nav className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center" aria-label="Navegación principal">
           <div className="flex items-center gap-3">
-            <a href="#inicio" className="flex items-center" aria-label="Ir al inicio de Biointech">
+            <a href="https://biointech.co/2026/index2.html" className="flex items-center" aria-label="Ir al inicio de Biointech">
               <img src="http://biointech.co/2026/wp-content/uploads/logo-Biointech-png-2.png" alt="Logotipo de Biointech S.A.S. - Soluciones Ambientales" className="h-14 md:h-16 object-contain bg-white/90 p-1 rounded" />
             </a>
           </div>
@@ -153,7 +153,13 @@ export default function App() {
           }}
         />
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/80 via-primary/50 to-dark/40" />
+        <div 
+          className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary to-dark/40" 
+          style={{ 
+            '--color-primary': '#003a8f0a', 
+            '--color-primary-dark': '#00266242' 
+          } as React.CSSProperties}
+        />
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full grid grid-cols-1 md:grid-cols-12 pt-20">
           <motion.div 
@@ -169,10 +175,10 @@ export default function App() {
               Sostenibilidad, Innovación, Responsabilidad Ambiental. Liderando la transición industrial hacia el futuro.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <a href="#nosotros" className="bg-gradient-to-br from-primary to-primary-dark text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-primary/20 transition-all">
+              <a href="https://biointech.co/2026/nosotros.html" className="bg-gradient-to-br from-primary to-primary-dark text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-primary/20 transition-all">
                 Conocer más
               </a>
-              <a href="#servicios" className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition-all text-center">
+              <a href="https://biointech.co/2026/servicios.html" className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition-all text-center">
                 Nuestros Servicios
               </a>
             </div>
@@ -223,7 +229,7 @@ export default function App() {
               </div>
               
               <div className="grid grid-cols-1 gap-6">
-                <div className="flex gap-5 p-6 bg-surface-container-low rounded-xl group hover:bg-primary transition-all duration-300">
+                <a href="https://biointech.co/2026/nosotros.html" className="flex gap-5 p-6 bg-surface-container-low rounded-xl group hover:bg-primary transition-all duration-300">
                   <Rocket className="text-secondary group-hover:text-secondary-light w-8 h-8 shrink-0" aria-hidden="true" />
                   <div>
                     <h3 className="font-bold text-primary-dark group-hover:text-white text-lg mb-1">Misión</h3>
@@ -231,8 +237,8 @@ export default function App() {
                       Transformar pasivos ambientales en activos productivos mediante innovación técnica constante.
                     </p>
                   </div>
-                </div>
-                <div className="flex gap-5 p-6 bg-surface-container-low rounded-xl group hover:bg-primary transition-all duration-300">
+                </a>
+                <a href="https://biointech.co/2026/nosotros.html" className="flex gap-5 p-6 bg-surface-container-low rounded-xl group hover:bg-primary transition-all duration-300">
                   <Eye className="text-secondary group-hover:text-secondary-light w-8 h-8 shrink-0" aria-hidden="true" />
                   <div>
                     <h3 className="font-bold text-primary-dark group-hover:text-white text-lg mb-1">Visión</h3>
@@ -240,7 +246,7 @@ export default function App() {
                       Ser el referente latinoamericano en biotecnología aplicada al tratamiento de residuos industriales para 2030.
                     </p>
                   </div>
-                </div>
+                </a>
               </div>
             </motion.div>
           </div>
@@ -584,13 +590,24 @@ export default function App() {
             </div>
             
             <div className="bg-surface-container-low p-8 md:p-10 rounded-3xl border border-neutral/20 shadow-sm">
-              <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+              <form 
+                className="space-y-6" 
+                action="https://formsubmit.co/agenciamio@gmail.com" 
+                method="POST"
+              >
+                {/* FormSubmit Configuration */}
+                <input type="hidden" name="_subject" value="Nueva solicitud desde Biointech Web" />
+                <input type="hidden" name="_next" value="https://biointech.co/2026/index2.html" />
+                <input type="hidden" name="_captcha" value="false" />
+
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-dark/60">Nombre Completo</label>
                   <input 
                     type="text" 
+                    name="nombre"
+                    required
                     placeholder="Juan Pérez"
-                    className="w-full bg-transparent border-none border-b-2 border-neutral/50 focus:border-secondary focus:ring-0 px-0 py-2 transition-colors placeholder:text-dark/30"
+                    className="w-full bg-white border border-neutral/20 rounded-lg focus:border-secondary focus:ring-2 focus:ring-secondary/20 px-4 py-3 transition-all placeholder:text-dark/30 text-dark"
                   />
                 </div>
 
@@ -598,8 +615,10 @@ export default function App() {
                   <label className="text-xs font-bold uppercase tracking-widest text-dark/60">WhatsApp</label>
                   <input 
                     type="tel" 
+                    name="whatsapp"
+                    required
                     placeholder="+57 300 000 0000"
-                    className="w-full bg-transparent border-none border-b-2 border-neutral/50 focus:border-secondary focus:ring-0 px-0 py-2 transition-colors placeholder:text-dark/30"
+                    className="w-full bg-white border border-neutral/20 rounded-lg focus:border-secondary focus:ring-2 focus:ring-secondary/20 px-4 py-3 transition-all placeholder:text-dark/30 text-dark"
                   />
                 </div>
 
@@ -607,14 +626,19 @@ export default function App() {
                   <label className="text-xs font-bold uppercase tracking-widest text-dark/60">Correo e-mail</label>
                   <input 
                     type="email" 
+                    name="email"
+                    required
                     placeholder="juan@empresa.com"
-                    className="w-full bg-transparent border-none border-b-2 border-neutral/50 focus:border-secondary focus:ring-0 px-0 py-2 transition-colors placeholder:text-dark/30"
+                    className="w-full bg-white border border-neutral/20 rounded-lg focus:border-secondary focus:ring-2 focus:ring-secondary/20 px-4 py-3 transition-all placeholder:text-dark/30 text-dark"
                   />
                 </div>
                 
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-dark/60">Asunto / Servicio de Interés</label>
-                  <select className="w-full bg-transparent border-none border-b-2 border-neutral/50 focus:border-secondary focus:ring-0 px-0 py-2 transition-colors text-dark">
+                  <select 
+                    name="servicio"
+                    className="w-full bg-white border border-neutral/20 rounded-lg focus:border-secondary focus:ring-2 focus:ring-secondary/20 px-4 py-3 transition-all text-dark"
+                  >
                     <option>MICROREFINERIA</option>
                     <option>GEOCONTENEDORES</option>
                     <option>TERMO-CENTRIFUGADO</option>
@@ -629,13 +653,18 @@ export default function App() {
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-dark/60">Mensaje requerimiento</label>
                   <textarea 
+                    name="mensaje"
                     rows={4}
+                    required
                     placeholder="Cuéntenos sobre su requerimiento..."
-                    className="w-full bg-transparent border-none border-b-2 border-neutral/50 focus:border-secondary focus:ring-0 px-0 py-2 transition-colors placeholder:text-dark/30 resize-none"
+                    className="w-full bg-white border border-neutral/20 rounded-lg focus:border-secondary focus:ring-2 focus:ring-secondary/20 px-4 py-3 transition-all placeholder:text-dark/30 text-dark resize-none"
                   ></textarea>
                 </div>
                 
-                <button className="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-xl font-bold uppercase tracking-widest transition-all shadow-md hover:shadow-xl active:scale-[0.98]">
+                <button 
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-xl font-bold uppercase tracking-widest transition-all shadow-md hover:shadow-xl active:scale-[0.98]"
+                >
                   Enviar Solicitud
                 </button>
               </form>
@@ -681,10 +710,10 @@ export default function App() {
             <div className="space-y-6">
               <h3 className="font-bold text-secondary-light uppercase text-xs tracking-widest">Presencia & Legal</h3>
               <ul className="space-y-3">
-                <li className="text-white/60 text-sm">Casanare</li>
+                <li><a href="https://biointech.co/2026/planta.html" className="text-white/60 hover:text-white text-sm transition-colors">Casanare</a></li>
                 <li className="text-white/60 text-sm">Bogotá</li>
-                <li><a href="#" className="text-white/60 hover:text-white text-sm transition-colors">Condiciones del Servicio</a></li>
-                <li><a href="#" className="text-white/60 hover:text-white text-sm transition-colors">Política de Privacidad</a></li>
+                <li><a href="https://biointech.co/2026/condiciones.html" className="text-white/60 hover:text-white text-sm transition-colors">Condiciones del Servicio</a></li>
+                <li><a href="https://biointech.co/2026/politicas.html" className="text-white/60 hover:text-white text-sm transition-colors">Política de Privacidad</a></li>
               </ul>
             </div>
             
